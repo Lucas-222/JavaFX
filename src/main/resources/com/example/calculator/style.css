@@ -1,0 +1,23 @@
+.textfield {
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-border-color: #00FFFF;
+    -fx-border-radius: 10px;
+    -fx-text-box-border: transparent;
+    -fx-background-color: -fx-control-inner-background;
+    -fx-background-insets: 0;
+}
+
+.textfield:focused, .textfield:hover {
+    -fx-text-box-border: transparent;
+}
+
+.button {
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+    -fx-font-weight: bold;
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: black;
+    -fx-border-color: #FF00FF;
+    -fx-border-radius: 10px;
+}

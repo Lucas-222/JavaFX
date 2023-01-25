@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane prefHeight="550.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.calculator.CalculatorController">
+
+    <!-- Stylesheets -->
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+
+    <!-- Operands -->
+    <TextField fx:id="operand1Field" layoutX="0.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield"/>
+    <TextField fx:id="operand2Field" layoutX="140.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield"/>
+
+    <!-- Operator -->
+    <TextField fx:id="operatorField" editable="false" layoutX="70.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield"/>
+
+    <!-- Result -->
+    <Text layoutX="210.0" layoutY="35.0" styleClass="text" text="=">
+      <font>
+         <Font size="24.0"/>
+      </font>
+    </Text>
+
+    <TextField fx:id="resultField" editable="false" layoutX="240.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield"/>
+
+    <!-- Buttons -->
+    <Pane layoutX="50.0" layoutY="50.0" prefHeight="500.0" prefWidth="350.0">
+        <!-- First row -->
+        <Button fx:id="addButton" layoutX="0.0" layoutY="10.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="+" />
+        <Button fx:id="subtractButton" layoutX="70.0" layoutY="10.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="-" />
+        <Button fx:id="multiplyButton" layoutX="140.0" layoutY="10.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="*" />
+        <!-- Second row -->
+        <Button fx:id="divideButton" layoutX="0.0" layoutY="80.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="/" />
+        <Button fx:id="exponentiationButton" layoutX="70.0" layoutY="80.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="^" />
+        <Button fx:id="floorDivisionButton" layoutX="140.0" layoutY="80.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="//" />
+        <!-- Third row -->
+        <Button fx:id="ggtButton" layoutX="10.0" layoutY="150.0" prefHeight="50.0" prefWidth="60.0" styleClass="button" text="ggt" />
+        <Button fx:id="moduloButton" layoutX="120.0" layoutY="150.0" prefHeight="50.0" prefWidth="60.0" styleClass="button" text="\%" />
+        <!-- Fourth row -->
+        <Button fx:id="resetButton" layoutX="45.0" layoutY="220.0" prefHeight="50.0" prefWidth="100.0" styleClass="button" text="Reset" />
+    </Pane>
+
+</Pane>
