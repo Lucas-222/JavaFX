@@ -90,7 +90,7 @@ public class CalculatorController {
 
     private boolean areCharactersLegal(TextField operandField) {
         // Check if operand fields contain illegal characters for operation ("", ".", "-")
-        return !operandField.getText().equals("") && !operandField.getText().equals(".") && !operandField.getText().equals("-");
+        return !operandField.getText().equals("") && !operandField.getText().equals(".") && !operandField.getText().equals("-") && !operandField.getText().equals("-.");
     }
 
     private void addEventHandler(TextField operandField) {
