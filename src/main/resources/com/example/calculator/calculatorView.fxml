@@ -13,14 +13,14 @@
     </stylesheets>
 
     <!-- Operands -->
-    <TextField fx:id="operand1Field" layoutX="0.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield"/>
+    <TextField fx:id="operand1Field" prefHeight="50.0" prefWidth="50.0" styleClass="textfield"/>
     <TextField fx:id="operand2Field" layoutX="140.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield"/>
 
     <!-- Operator -->
     <TextField fx:id="operatorField" editable="false" layoutX="70.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield"/>
 
     <!-- Result -->
-    <Text layoutX="210.0" layoutY="35.0" styleClass="text" text="=">
+    <Text layoutX="210.0" layoutY="35.0" text="=">
       <font>
          <Font size="24.0"/>
       </font>
@@ -31,11 +31,11 @@
     <!-- Buttons -->
     <Pane layoutX="50.0" layoutY="50.0" prefHeight="500.0" prefWidth="350.0">
         <!-- First row -->
-        <Button fx:id="addButton" layoutX="0.0" layoutY="10.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="+" />
+        <Button fx:id="addButton" layoutY="10.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="+" />
         <Button fx:id="subtractButton" layoutX="70.0" layoutY="10.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="-" />
         <Button fx:id="multiplyButton" layoutX="140.0" layoutY="10.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="*" />
         <!-- Second row -->
-        <Button fx:id="divideButton" layoutX="0.0" layoutY="80.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="/" />
+        <Button fx:id="divideButton" layoutY="80.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="/" />
         <Button fx:id="exponentiationButton" layoutX="70.0" layoutY="80.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="^" />
         <Button fx:id="floorDivisionButton" layoutX="140.0" layoutY="80.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="//" />
         <!-- Third row -->

@@ -63,7 +63,7 @@ public class CalculatorController {
     }
 
     private void calculate(String operator) {
-        if (!operand1Field.getText().equals("") && !operand2Field.getText().equals("") && !operand1Field.getText().equals(".") && !operand2Field.getText().equals(".")) {
+        if (areCharactersLegal(operand1Field) && areCharactersLegal(operand2Field)) {
             // Set operands
             model.setOperand1(Double.parseDouble(operand1Field.getText()));
             model.setOperand2(Double.parseDouble(operand2Field.getText()));
@@ -88,6 +88,11 @@ public class CalculatorController {
         }
     }
 
+    private boolean areCharactersLegal(TextField operandField) {
+        // Check if operand fields contain illegal characters for operation ("", ".", "-")
+        return !operandField.getText().equals("") && !operandField.getText().equals(".") && !operandField.getText().equals("-");
+    }
+
     private void addEventHandler(TextField operandField) {
         operandField.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
             if (!operatorField.getText().equals("")) {
@@ -97,7 +102,7 @@ public class CalculatorController {
     }
 
     private void addChangeListener(TextField operandField) {
-        ArrayList<Character> validNumbers = new ArrayList<>(List.of('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'));
+        ArrayList<Character> validNumbers = new ArrayList<>(List.of('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '-'));
         operandField.textProperty().addListener((observable, oldValue, newValue) -> {
             // If change contains illegal character reset the field to old value
             for (int i = 0; i < newValue.length(); i++) {
@@ -115,6 +120,15 @@ public class CalculatorController {
 
                 // If there is more than one decimal point delete it
                 if (count > 1) {
+                    operandField.setText(oldValue);
+                    break;
+                }
+            }
+
+            // Check for minus sign
+            for (int i = 0; i < newValue.length(); i++) {
+                // If there is more than one minus sign delete it
+                if (newValue.charAt(i) == '-' && i != 0) {
                     operandField.setText(oldValue);
                     break;
                 }
