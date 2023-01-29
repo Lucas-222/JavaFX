@@ -21,15 +21,15 @@
         <TextField fx:id="operatorField" editable="false" layoutX="70.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield" />
 
         <!-- Result -->
-        <Text fill="AQUA" layoutX="200.0" layoutY="32.5" styleClass="equal" text="=">
+        <Text fill="AQUA" layoutX="200.0" layoutY="32.5" text="=" textAlignment="CENTER">
           <font>
              <Font size="25.0" />
           </font>
         </Text>
 
         <TextField fx:id="resultField" editable="false" layoutX="225.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield" />
-
     </Pane>
+
     <!-- Buttons -->
     <Pane layoutX="42.5" layoutY="50.0" prefHeight="270.0" prefWidth="190.0">
         <!-- First row -->

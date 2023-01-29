@@ -66,55 +66,6 @@ public class CalculatorController {
 
     }
 
-    private void calculate(String operator) {
-        if (areCharactersLegal(operand1Field) && areCharactersLegal(operand2Field)) {
-            // Set operands
-            model.setOperand1(Double.parseDouble(operand1Field.getText()));
-            model.setOperand2(Double.parseDouble(operand2Field.getText()));
-
-            // Calculate
-            switch (operator) {
-                case "+" -> model.add();
-                case "-" -> model.subtract();
-                case "*" -> model.multiply();
-                case "/" -> model.divide();
-                case "^" -> model.exponent();
-                case "%" -> model.modulo();
-                case "//" -> model.floorDivision();
-                case "ggt" -> model.ggt();
-            }
-
-            // Set result field
-            resultField.setText(Double.toString(model.getResult()));
-
-            // Set operator field
-            operatorField.setText(operator);
-        }
-    }
-
-    private boolean areCharactersLegal(TextField operandField) {
-        // Check if operand fields contain illegal characters for operation ("", ".", "-")
-        return !operandField.getText().equals("") && !operandField.getText().equals(".") && !operandField.getText().equals("-") && !operandField.getText().equals("-.");
-    }
-
-    private void addEventHandlerOperands(TextField operandField) {
-        operandField.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
-            if (!operatorField.getText().equals("")) {
-                calculate(operatorField.getText());
-            }
-        });
-    }
-
-    private void addEventHandlerOperator(TextField operandField) {
-        operandField.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
-            // Check if key pressed is a valid operator
-            if (event.getText().equals("+") || event.getText().equals("-") || event.getText().equals("*") || event.getText().equals("/") || event.getText().equals("^") || event.getText().equals("%") || event.getText().equals("//") || event.getText().equals("ggt")) {
-                operatorField.setText(event.getText());
-                calculate(event.getText());
-            }
-        });
-    }
-
     private void addChangeListener(TextField operandField) {
         ArrayList<Character> validCharacters = new ArrayList<>(List.of('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '-'));
         operandField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -148,6 +99,72 @@ public class CalculatorController {
                 }
             }
         });
+    }
+
+    private void addEventHandlerOperands(TextField operandField) {
+        operandField.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
+            if (!operatorField.getText().equals("")) {
+                calculate(operatorField.getText());
+            }
+        });
+    }
+
+    private void addEventHandlerOperator(TextField operandField) {
+        operandField.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
+            // Create a string of the pressed key
+            String text = event.getText();
+
+            // Check if shift + key pressed
+            if (event.isShiftDown()) {
+                // Check if key pressed is a valid operator
+                switch (event.getText()) {
+                    case "+" -> text = "*";
+                    case "7" -> text = "/";
+                    case "5" -> text = "%";
+                }
+            }
+
+            // Check if key pressed is a valid operator
+            if (text.equals("+") || text.equals("-") || text.equals("*") || text.equals("/") || text.equals("%")) {
+                // Set operator field to pressed key
+                operatorField.setText(text);
+                // Set focus to second operand field
+                operand2Field.requestFocus();
+                // Calculate
+                calculate(text);
+            }
+        });
+    }
+
+    private void calculate(String operator) {
+        if (areCharactersLegal(operand1Field) && areCharactersLegal(operand2Field)) {
+            // Set operator field
+            operatorField.setText(operator);
+
+            // Set operands in model
+            model.setOperand1(Double.parseDouble(operand1Field.getText()));
+            model.setOperand2(Double.parseDouble(operand2Field.getText()));
+
+            // Calculate in model
+            switch (operator) {
+                case "+" -> model.add();
+                case "-" -> model.subtract();
+                case "*" -> model.multiply();
+                case "/" -> model.divide();
+                case "^" -> model.exponent();
+                case "%" -> model.modulo();
+                case "//" -> model.floorDivision();
+                case "ggt" -> model.ggt();
+            }
+
+            // Set result field to result of model
+            resultField.setText(Double.toString(model.getResult()));
+        }
+    }
+
+    private boolean areCharactersLegal(TextField operandField) {
+        // Check if operand fields contain illegal characters for operation ("", ".", "-")
+        return !operandField.getText().equals("") && !operandField.getText().equals(".") && !operandField.getText().equals("-") && !operandField.getText().equals("-.");
     }
 
     private void reset() {
