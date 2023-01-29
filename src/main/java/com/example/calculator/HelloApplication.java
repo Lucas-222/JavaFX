@@ -11,8 +11,9 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("calculatorView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 300, 350);
+        Scene scene = new Scene(fxmlLoader.load(), 275, 320);
         stage.setTitle("Calculator");
+        stage.resizableProperty().setValue(Boolean.FALSE);
         stage.setScene(scene);
         stage.show();
     }

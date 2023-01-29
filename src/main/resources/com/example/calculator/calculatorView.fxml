@@ -5,31 +5,33 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="550.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.calculator.CalculatorController">
+<Pane prefHeight="320.0" prefWidth="275.0" styleClass="main" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.calculator.CalculatorController">
 
     <!-- Stylesheets -->
     <stylesheets>
         <URL value="@style.css" />
     </stylesheets>
 
-    <!-- Operands -->
-    <TextField fx:id="operand1Field" prefHeight="50.0" prefWidth="50.0" styleClass="textfield"/>
-    <TextField fx:id="operand2Field" layoutX="140.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield"/>
+    <Pane prefHeight="50" prefWidth="275">
+        <!-- Operands -->
+        <TextField fx:id="operand1Field" prefHeight="50.0" prefWidth="50.0" styleClass="textfield" />
+        <TextField fx:id="operand2Field" layoutX="140.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield" />
 
-    <!-- Operator -->
-    <TextField fx:id="operatorField" editable="false" layoutX="70.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield"/>
+        <!-- Operator -->
+        <TextField fx:id="operatorField" editable="false" layoutX="70.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield" />
 
-    <!-- Result -->
-    <Text layoutX="210.0" layoutY="35.0" text="=">
-      <font>
-         <Font size="24.0"/>
-      </font>
-    </Text>
+        <!-- Result -->
+        <Text fill="AQUA" layoutX="200.0" layoutY="32.5" styleClass="equal" text="=">
+          <font>
+             <Font size="25.0" />
+          </font>
+        </Text>
 
-    <TextField fx:id="resultField" editable="false" layoutX="240.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield"/>
+        <TextField fx:id="resultField" editable="false" layoutX="225.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield" />
 
+    </Pane>
     <!-- Buttons -->
-    <Pane layoutX="50.0" layoutY="50.0" prefHeight="500.0" prefWidth="350.0">
+    <Pane layoutX="42.5" layoutY="50.0" prefHeight="270.0" prefWidth="190.0">
         <!-- First row -->
         <Button fx:id="addButton" layoutY="10.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="+" />
         <Button fx:id="subtractButton" layoutX="70.0" layoutY="10.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="-" />

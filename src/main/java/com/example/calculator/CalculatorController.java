@@ -57,8 +57,12 @@ public class CalculatorController {
         addChangeListener(operand2Field);
 
         // Add event handlers for fields
-        addEventHandler(operand1Field);
-        addEventHandler(operand2Field);
+        addEventHandlerOperands(operand1Field);
+        addEventHandlerOperands(operand2Field);
+
+        // Add event handlers for buttons
+        addEventHandlerOperator(operand1Field);
+        addEventHandlerOperator(operand2Field);
 
     }
 
@@ -93,7 +97,7 @@ public class CalculatorController {
         return !operandField.getText().equals("") && !operandField.getText().equals(".") && !operandField.getText().equals("-") && !operandField.getText().equals("-.");
     }
 
-    private void addEventHandler(TextField operandField) {
+    private void addEventHandlerOperands(TextField operandField) {
         operandField.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
             if (!operatorField.getText().equals("")) {
                 calculate(operatorField.getText());
@@ -101,12 +105,22 @@ public class CalculatorController {
         });
     }
 
+    private void addEventHandlerOperator(TextField operandField) {
+        operandField.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
+            // Check if key pressed is a valid operator
+            if (event.getText().equals("+") || event.getText().equals("-") || event.getText().equals("*") || event.getText().equals("/") || event.getText().equals("^") || event.getText().equals("%") || event.getText().equals("//") || event.getText().equals("ggt")) {
+                operatorField.setText(event.getText());
+                calculate(event.getText());
+            }
+        });
+    }
+
     private void addChangeListener(TextField operandField) {
-        ArrayList<Character> validNumbers = new ArrayList<>(List.of('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '-'));
+        ArrayList<Character> validCharacters = new ArrayList<>(List.of('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '-'));
         operandField.textProperty().addListener((observable, oldValue, newValue) -> {
             // If change contains illegal character reset the field to old value
             for (int i = 0; i < newValue.length(); i++) {
-                if (!validNumbers.contains(newValue.charAt(i))) {
+                if (!validCharacters.contains(newValue.charAt(i))) {
                     operandField.setText(oldValue);
                     break;
                 }
