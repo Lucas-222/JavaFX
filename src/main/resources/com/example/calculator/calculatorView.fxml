@@ -5,46 +5,46 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="320.0" prefWidth="275.0" styleClass="main" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.calculator.CalculatorController">
+<Pane prefHeight="475.0" prefWidth="500.0" styleClass="main" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.calculator.CalculatorController">
 
     <!-- Stylesheets -->
     <stylesheets>
         <URL value="@style.css" />
     </stylesheets>
 
-    <Pane prefHeight="50" prefWidth="275">
+    <Pane layoutY="10" prefHeight="80" prefWidth="500">
         <!-- Operands -->
-        <TextField fx:id="operand1Field" prefHeight="50.0" prefWidth="50.0" styleClass="textfield" />
-        <TextField fx:id="operand2Field" layoutX="140.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield" />
+        <TextField fx:id="operand1Field" layoutX="10" prefHeight="80.0" prefWidth="105.0" styleClass="textfield" />
+        <TextField fx:id="operand2Field" layoutX="260.0" prefHeight="80.0" prefWidth="105.0" styleClass="textfield" />
 
         <!-- Operator -->
-        <TextField fx:id="operatorField" editable="false" layoutX="70.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield" />
+        <TextField fx:id="operatorField" editable="false" layoutX="135.0" prefHeight="80.0" prefWidth="105.0" styleClass="textfield" />
 
         <!-- Result -->
-        <Text fill="AQUA" layoutX="200.0" layoutY="32.5" text="=" textAlignment="CENTER">
-          <font>
-             <Font size="25.0" />
-          </font>
-        </Text>
+        <TextField fx:id="resultField" editable="false" layoutX="385.0" prefHeight="80.0" prefWidth="105.0" styleClass="textfield" />
 
-        <TextField fx:id="resultField" editable="false" layoutX="225.0" prefHeight="50.0" prefWidth="50.0" styleClass="textfield" />
+        <!-- Equal sign -->
+        <Text fill="AQUA" layoutX="367.0" layoutY="45.5" text="=" textAlignment="CENTER">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Text>
     </Pane>
 
     <!-- Buttons -->
-    <Pane layoutX="42.5" layoutY="50.0" prefHeight="270.0" prefWidth="190.0">
+    <Pane layoutY="100.0" prefHeight="375.0" prefWidth="500.0">
         <!-- First row -->
-        <Button fx:id="addButton" layoutY="10.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="+" />
-        <Button fx:id="subtractButton" layoutX="70.0" layoutY="10.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="-" />
-        <Button fx:id="multiplyButton" layoutX="140.0" layoutY="10.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="*" />
+        <Button fx:id="addButton" layoutY="10.0" layoutX="10.0" prefHeight="105.0" prefWidth="105.0" styleClass="button" text="+" />
+        <Button fx:id="subtractButton" layoutY="10.0" layoutX="135.0" prefHeight="105.0" prefWidth="105.0" styleClass="button" text="-" />
+        <Button fx:id="multiplyButton" layoutY="10.0" layoutX="260.0" prefHeight="105.0" prefWidth="105.0" styleClass="button" text="*" />
+        <Button fx:id="divideButton" layoutY="10.0" layoutX="385.0" prefHeight="105.0" prefWidth="105.0" styleClass="button" text="/" />
         <!-- Second row -->
-        <Button fx:id="divideButton" layoutY="80.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="/" />
-        <Button fx:id="exponentiationButton" layoutX="70.0" layoutY="80.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="^" />
-        <Button fx:id="floorDivisionButton" layoutX="140.0" layoutY="80.0" prefHeight="50.0" prefWidth="50.0" styleClass="button" text="//" />
+        <Button fx:id="exponentiationButton" layoutX="10.0" layoutY="135.0" prefHeight="105.0" prefWidth="105.0" styleClass="button" text="^" />
+        <Button fx:id="floorDivisionButton" layoutX="135.0" layoutY="135.0" prefHeight="105.0" prefWidth="105.0" styleClass="button" text="//" />
+        <Button fx:id="ggtButton" layoutX="260.0" layoutY="135.0" prefHeight="105.0" prefWidth="105.0" styleClass="button" text="ggt" />
+        <Button fx:id="moduloButton" layoutX="385.0" layoutY="135.0" prefHeight="105.0" prefWidth="105.0" styleClass="button" text="\%" />
         <!-- Third row -->
-        <Button fx:id="ggtButton" layoutX="10.0" layoutY="150.0" prefHeight="50.0" prefWidth="60.0" styleClass="button" text="ggt" />
-        <Button fx:id="moduloButton" layoutX="120.0" layoutY="150.0" prefHeight="50.0" prefWidth="60.0" styleClass="button" text="\%" />
-        <!-- Fourth row -->
-        <Button fx:id="resetButton" layoutX="45.0" layoutY="220.0" prefHeight="50.0" prefWidth="100.0" styleClass="button" text="Reset" />
+        <Button fx:id="resetButton" layoutX="10.0" layoutY="260.0" prefHeight="105.0" prefWidth="480.0" styleClass="button" text="Reset" />
     </Pane>
 
 </Pane>

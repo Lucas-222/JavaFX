@@ -114,9 +114,13 @@ public class CalculatorController {
             // Create a string of the pressed key
             String text = event.getText();
 
+            // If key pressed is (-) and operand field is (-) return
+            if (text.equals("-") && operandField.getText().equals("-")) {
+                return;
+            }
+
             // Check if shift + key pressed
             if (event.isShiftDown()) {
-                // Check if key pressed is a valid operator
                 switch (event.getText()) {
                     case "+" -> text = "*";
                     case "7" -> text = "/";

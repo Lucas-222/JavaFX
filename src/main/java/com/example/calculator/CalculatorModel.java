@@ -28,6 +28,8 @@ public class CalculatorModel {
     public void divide() {
         if (operand2 != 0) {
             result = operand1 / operand2;
+        } else {
+            result = Double.NaN;
         }
     }
 
@@ -36,11 +38,19 @@ public class CalculatorModel {
     }
 
     public void modulo() {
-        result = operand1 % operand2;
+        if (operand2 != 0) {
+            result = operand1 % operand2;
+        } else {
+            result = Double.NaN;
+        }
     }
 
     public void floorDivision() {
-        result = (int) operand1 / (int) operand2;
+        if (operand2 != 0) {
+            result = (int) operand1 / (int) operand2;
+        } else {
+            result = Double.NaN;
+        }
     }
 
     public void ggt() {

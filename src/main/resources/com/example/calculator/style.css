@@ -1,5 +1,6 @@
 .main {
     -fx-background-color: #000000;
+    -fx-border-radius: 10px;
 }
 
 .textfield {
